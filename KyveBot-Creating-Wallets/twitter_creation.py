@@ -13,26 +13,34 @@ def generate_random_name_or_password():
 
 
 def twc(driver):
-    driver.execute_script('''window.open("https://twitter.com/signup", "tab2");''')
-    driver.switch_to.window('tab2')
-    sleep(2)
-    driver.find_elements(by=By.XPATH,value="//*[@role='button']")[2].click()
-    name = generate_random_name_or_password()
-    driver.find_element(by=By.NAME, value="name").send_keys(name)
+    code = False
+    main_page = driver.current_window_handle
+    while not code:
+        driver.execute_script('''window.open("https://twitter.com/signup", "tab2");''')
+        driver.switch_to.window('tab2')
+        sleep(4)
+        driver.find_elements(by=By.XPATH,value="//*[@role='button']")[2].click()
+        name = generate_random_name_or_password()
+        driver.find_element(by=By.NAME, value="name").send_keys(name)
 
-    phone, activation = get_phone()
+        phone, activation = get_phone()
 
-    driver.find_element(by=By.NAME, value="phone_number").send_keys(phone)
-    driver.find_element(by=By.XPATH, value=f"//*[@value='{random.randint(1, 12)}']").click()
-    driver.find_element(by=By.XPATH, value=f"//*[@aria-labelledby='SELECTOR_2_LABEL']//*[@value='{random.randint(1, 28)}']").click()
-    driver.find_element(by=By.XPATH, value=f"//*[@value='{random.randint(1975, 2003)}']").click()
-    sleep(2)
-    driver.find_elements(by=By.XPATH, value="//*[@role='button']")[2].click()
-    driver.find_elements(by=By.XPATH, value="//*[@role='button']")[1].click()
-    driver.find_element(by=By.XPATH, value="//*[@role='button' and @data-testid='ocfSignupReviewNextLink']").click()
-    driver.find_elements(by=By.XPATH, value="//*[@role='button']")[4].click()
-    sleep(1)
-    driver.find_element(by=By.NAME, value="verfication_code").send_keys(get_sms(activation))
+        driver.find_element(by=By.NAME, value="phone_number").send_keys(phone)
+        driver.find_element(by=By.XPATH, value=f"//*[@value='{random.randint(1, 12)}']").click()
+        driver.find_element(by=By.XPATH, value=f"//*[@aria-labelledby='SELECTOR_2_LABEL']//*[@value='{random.randint(1, 28)}']").click()
+        driver.find_element(by=By.XPATH, value=f"//*[@value='{random.randint(1975, 2003)}']").click()
+        sleep(2)
+        driver.find_elements(by=By.XPATH, value="//*[@role='button']")[2].click()
+        driver.find_elements(by=By.XPATH, value="//*[@role='button']")[1].click()
+        driver.find_element(by=By.XPATH, value="//*[@role='button' and @data-testid='ocfSignupReviewNextLink']").click()
+        driver.find_elements(by=By.XPATH, value="//*[@role='button']")[4].click()
+        sleep(1)
+        code = get_sms(activation)
+        if not code:
+            driver.close()
+            driver.switch_to.window(main_page)
+
+    driver.find_element(by=By.NAME, value="verfication_code").send_keys(code)
     driver.find_elements(by=By.XPATH, value="//*[@role='button']")[2].click()
     sleep(2)
     password = generate_random_name_or_password()

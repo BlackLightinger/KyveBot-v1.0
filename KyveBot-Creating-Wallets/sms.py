@@ -1,23 +1,40 @@
-from smsactivateru import Sms, SmsService, GetNumber, SmsTypes
+from smsactivate.api import SMSActivateAPI
+from time import time
 
 
 def get_phone():
-    wrapper = Sms('fA911347A3fA0ed4cb1d349c6de6bf10')
+    wrapper = SMSActivateAPI('fA911347A3fA0ed4cb1d349c6de6bf10')
 
-    activation = GetNumber(
-        service=SmsService().Twitter,
-        country=SmsTypes.Country.ID
-    ).request(wrapper)
+    activation = wrapper.getNumber(service='tw', country=6)
 
-    print('id: {} phone: {}'.format(str(activation.id), str(activation.phone_number)))
+    print(activation)
 
-    return '+' + activation.phone_number, activation
+    return '+' + str(activation['phone']), activation
+
+
+def waiting_code(activation):
+    wrapper = SMSActivateAPI('fA911347A3fA0ed4cb1d349c6de6bf10')
+
+    start = time()
+    status = wrapper.getStatus(id=activation['activation_id'])
+
+    while status == 'STATUS_WAIT_CODE':
+        if time() - start < 10:
+            status = wrapper.getStatus(id=activation['activation_id'])
+        else:
+            wrapper.setStatus(id=activation['activation_id'], status=8)
+            return False
+    return True
 
 
 def get_sms(activation):
-    wrapper = Sms('fA911347A3fA0ed4cb1d349c6de6bf10')
+    wrapper = SMSActivateAPI('fA911347A3fA0ed4cb1d349c6de6bf10')
 
-    activation.was_sent()
-    code = activation.wait_code(wrapper=wrapper)
+    wrapper.setStatus(id=activation['activation_id'], status=1)
+    if not waiting_code(activation):
+        return False
 
-    return code
+    status = wrapper.getStatus(id=activation['activation_id'])
+    code = status.split(':')
+    wrapper.setStatus(id=activation['activation_id'], status=6)
+    return code[1]

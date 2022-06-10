@@ -53,21 +53,6 @@ sleep(3)
 
 start = time()
 
-'''driver.get("https://discord.com/register")
-sleep(1)
-driver.find_element(by=By.XPATH, value="//*[name()='input' and @aria-label='День']"
-                    ).send_keys(str(random.randint(1, 28)))
-
-driver.find_element(by=By.XPATH, value="//*[name()='input' and @aria-label='Месяц']"
-                    ).send_keys(str(random.randint(1, 12)))
-driver.find_element(by=By.XPATH, value="//*[name()='input' and @aria-label='Месяц']"
-                    ).send_keys(Keys.ENTER)
-
-driver.find_element(by=By.XPATH, value="//*[name()='input' and @aria-label='Год']"
-                    ).send_keys(str(random.randint(1975, 2003)))
-driver.find_element(by=By.XPATH, value="//*[contains(text(), 'Продолжить')]").click()'''
-
-
 keplr_connect(driver)
 main_page = driver.current_window_handle
 
