@@ -19,7 +19,7 @@ def waiting_code(activation):
     status = wrapper.getStatus(id=activation['activation_id'])
 
     while status == 'STATUS_WAIT_CODE':
-        if time() - start < 10:
+        if time() - start < 60:
             status = wrapper.getStatus(id=activation['activation_id'])
         else:
             wrapper.setStatus(id=activation['activation_id'], status=8)
