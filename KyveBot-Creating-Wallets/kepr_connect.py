@@ -1,4 +1,5 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.alert import Alert
 from time import sleep
 
 def popup_windows(driver, main_page):
@@ -38,9 +39,8 @@ def keplr_connect(driver):
         file.write("\n")
 
     try:
-        main_page = driver.current_window_handle
-        driver.switch_to.alert().accept()
-        driver.switch_to.window(main_page)
+        alert = Alert(driver)
+        alert.dismiss()
     except:
         print("no alert")
 

@@ -18,13 +18,7 @@ def tac(driver):
 
     sleep(15)
 
-    try:
-        driver.find_element(by=By.XPATH, value="//*[contains(text(), 'Maybe later')]").click()
-        driver.find_element(by=By.XPATH, value="//*[contains(text(), 'Got it')]").click()
-    except:
-        driver.find_element(by=By.XPATH, value="//*[contains(text(), 'Got it')]").click()
 
-    sleep(1)
     driver.find_element(by=By.XPATH, value="//*[contains(text(), 'Tweet')]").click()
 
     sleep(10)

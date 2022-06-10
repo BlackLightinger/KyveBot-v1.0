@@ -40,35 +40,34 @@ options.add_extension('extension_0_10_4_0.crx')
 options.add_extension('anticaptcha-plugin_v0.62.crx')
 options.add_extension('proxy.zip')
 
-driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-driver.get("https://www.google.ru/")
-sleep(1)
+while True:
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+    driver.get("https://www.google.ru/")
+    sleep(1)
 
-acp_api_send_request(
-    driver,
-    'setOptions',
-    {'options': {'antiCaptchaApiKey': '86fab685c1b83c34e38c1f2903d5a62e'}}
-)
-sleep(3)
+    acp_api_send_request(
+        driver,
+        'setOptions',
+        {'options': {'antiCaptchaApiKey': '86fab685c1b83c34e38c1f2903d5a62e'}}
+    )
+    sleep(3)
 
-start = time()
+    start = time()
 
-keplr_connect(driver)
-main_page = driver.current_window_handle
+    keplr_connect(driver)
+    main_page = driver.current_window_handle
 
-twc(driver)
+    twc(driver)
 
-driver.switch_to.window(main_page)
+    driver.switch_to.window(main_page)
 
-tweet_url = tac(driver)
+    tweet_url = tac(driver)
 
-sleep(1)
-driver.find_element(by=By.XPATH, value="//*[name()='input' and @class='q-field__native q-placeholder']").send_keys(tweet_url)
-sleep(1)
-driver.find_element(by=By.XPATH, value="//*[contains(text(), 'Claim your tokens')]").click()
+    sleep(1)
+    driver.find_element(by=By.XPATH, value="//*[name()='input' and @class='q-field__native q-placeholder']").send_keys(tweet_url)
+    sleep(1)
+    driver.find_element(by=By.XPATH, value="//*[contains(text(), 'Claim your tokens')]").click()
 
-WebDriverWait(driver, 180).until(lambda x: x.find_element(by=By.CSS_SELECTOR, value=".antigate_solver.solved"))
+    WebDriverWait(driver, 180).until(lambda x: x.find_element(by=By.CSS_SELECTOR, value=".antigate_solver.solved"))
 
-print(time() - start)
-
-sleep(100)
+    print(time() - start)
