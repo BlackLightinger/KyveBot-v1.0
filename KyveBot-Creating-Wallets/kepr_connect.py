@@ -53,12 +53,12 @@ def keplr_connect(driver):
     driver.find_element(by=By.XPATH, value="//*[contains(text(), 'Save selection')]").click()
     driver.find_element(by=By.XPATH, value="//*[contains(text(), 'Connect wallet')]").click()
 
-    sleep(1)
+    sleep(2)
     main_page = driver.current_window_handle
     driver.switch_to.window(popup_windows(driver, main_page))
     driver.find_element(by=By.XPATH, value="//*[contains(text(), 'Approve')]").click()
     driver.switch_to.window(main_page)
-    sleep(1)
+    sleep(2)
     driver.switch_to.window(popup_windows(driver, main_page))
     driver.find_element(by=By.XPATH, value="//*[contains(text(), 'Approve')]").click()
     driver.switch_to.window(main_page)

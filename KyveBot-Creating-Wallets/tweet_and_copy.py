@@ -17,8 +17,12 @@ def tac(driver):
     driver.switch_to.window(popup_windows(driver, main_page))
 
     sleep(15)
+    try:
+        driver.find_element(by=By.XPATH, value="//*[contains(text(), 'Skip for now')]").click()
+    except:
+        pass
 
-
+    sleep(2)
     driver.find_element(by=By.XPATH, value="//*[contains(text(), 'Tweet')]").click()
 
     sleep(10)

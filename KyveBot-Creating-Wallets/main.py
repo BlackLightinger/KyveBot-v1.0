@@ -55,6 +55,7 @@ while True:
     start = time()
 
     keplr_connect(driver)
+    sleep(1)
     main_page = driver.current_window_handle
 
     twc(driver)
@@ -69,5 +70,5 @@ while True:
     driver.find_element(by=By.XPATH, value="//*[contains(text(), 'Claim your tokens')]").click()
 
     WebDriverWait(driver, 180).until(lambda x: x.find_element(by=By.CSS_SELECTOR, value=".antigate_solver.solved"))
-
+    sleep(5)
     print(time() - start)
