@@ -2,32 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="394afb8d-1040-4c0c-8b6a-d29b0e884315" name="Changes" comment="fixed sms.py">
-      <change afterPath="$PROJECT_DIR$/KyveBot-Creating-Wallets/pics/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KyveBot-Creating-Wallets/pics/10.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KyveBot-Creating-Wallets/pics/11.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KyveBot-Creating-Wallets/pics/12.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KyveBot-Creating-Wallets/pics/13.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KyveBot-Creating-Wallets/pics/14.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KyveBot-Creating-Wallets/pics/15.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KyveBot-Creating-Wallets/pics/16.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KyveBot-Creating-Wallets/pics/17.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KyveBot-Creating-Wallets/pics/18.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KyveBot-Creating-Wallets/pics/19.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KyveBot-Creating-Wallets/pics/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KyveBot-Creating-Wallets/pics/20.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KyveBot-Creating-Wallets/pics/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KyveBot-Creating-Wallets/pics/4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KyveBot-Creating-Wallets/pics/5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KyveBot-Creating-Wallets/pics/6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KyveBot-Creating-Wallets/pics/7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KyveBot-Creating-Wallets/pics/8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KyveBot-Creating-Wallets/pics/9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Twitter_Creation/auth_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KyveBot-Creating-Wallets/twitter_creation.py" beforeDir="false" afterPath="$PROJECT_DIR$/KyveBot-Creating-Wallets/twitter_creation.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Twitter_Creation/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Twitter_Creation/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Twitter_Creation/sms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Twitter_Creation/sms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Twitter_Creation/twitters.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Twitter_Creation/twitters.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +129,7 @@
       <workItem from="1654896656196" duration="2563000" />
       <workItem from="1654899383801" duration="2893000" />
       <workItem from="1654902322701" duration="11043000" />
-      <workItem from="1655054957521" duration="17819000" />
+      <workItem from="1655054957521" duration="19214000" />
     </task>
     <servers />
   </component>

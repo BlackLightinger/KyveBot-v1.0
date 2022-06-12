@@ -6,6 +6,7 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 import telebot
 from auth_data import telebot_token, bot_pass
+from pyvirtualdisplay import Display
 
 
 bot = telebot.TeleBot(telebot_token)
@@ -23,12 +24,18 @@ def main():
     global running
     global stop_flag
     while check(running):
+        display = Display(visible=0, size=(800, 600))
+        display.start()
+
         options = Options()
         options.add_argument("start-maximized")
         options.add_extension('proxy.zip')
+        options.headless = True
         global driver
         driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
         twc(driver)
+
+        display.stop()
     driver.quit()
     stop_flag = True
 
