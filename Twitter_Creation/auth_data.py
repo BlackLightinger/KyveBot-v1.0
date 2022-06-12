@@ -1,3 +1,3 @@
-API_key = ""
-telebot_token = ""
-bot_pass = ""
+API_key = "47542d631fe35A5883273b431Ad22680"
+telebot_token = "5481650894:AAFaN4HfO54gA-n7vobdJITQSvPwK1zc04w"
+bot_pass = "1234"

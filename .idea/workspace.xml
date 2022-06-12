@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="394afb8d-1040-4c0c-8b6a-d29b0e884315" name="Changes" comment="fixed sms.py">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Twitter_Creation/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Twitter_Creation/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="394afb8d-1040-4c0c-8b6a-d29b0e884315" name="Changes" comment="fixed sms.py" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -129,7 +126,7 @@
       <workItem from="1654896656196" duration="2563000" />
       <workItem from="1654899383801" duration="2893000" />
       <workItem from="1654902322701" duration="11043000" />
-      <workItem from="1655054957521" duration="19214000" />
+      <workItem from="1655054957521" duration="19562000" />
     </task>
     <servers />
   </component>
