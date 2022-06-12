@@ -1,9 +1,10 @@
 from smsactivate.api import SMSActivateAPI
 from time import time
+from auth_data import API_key
 
 
 def get_phone():
-    wrapper = SMSActivateAPI('fA911347A3fA0ed4cb1d349c6de6bf10')
+    wrapper = SMSActivateAPI(API_key)
 
     activation = wrapper.getNumber(service='tw', country=6)
     try:
@@ -18,7 +19,7 @@ def get_phone():
 
 
 def waiting_code(activation):
-    wrapper = SMSActivateAPI('fA911347A3fA0ed4cb1d349c6de6bf10')
+    wrapper = SMSActivateAPI(API_key)
 
     start = time()
     status = wrapper.getStatus(id=activation['activation_id'])
@@ -33,7 +34,7 @@ def waiting_code(activation):
 
 
 def get_sms(activation):
-    wrapper = SMSActivateAPI('fA911347A3fA0ed4cb1d349c6de6bf10')
+    wrapper = SMSActivateAPI(API_key)
 
     wrapper.setStatus(id=activation['activation_id'], status=1)
     if not waiting_code(activation):

@@ -3,6 +3,7 @@ import string
 from selenium.webdriver.common.by import By
 from time import sleep
 from sms import get_sms, get_phone
+from os import getcwd
 
 
 def generate_random_name_or_password():
@@ -33,6 +34,7 @@ def twc(driver):
         driver.find_elements(by=By.XPATH, value="//*[@role='button']")[2].click()
         driver.find_elements(by=By.XPATH, value="//*[@role='button']")[1].click()
         driver.find_element(by=By.XPATH, value="//*[@role='button' and @data-testid='ocfSignupReviewNextLink']").click()
+        sleep(1)
         driver.find_elements(by=By.XPATH, value="//*[@role='button']")[4].click()
         sleep(1)
         code = get_sms(activation)
@@ -48,11 +50,29 @@ def twc(driver):
     sleep(2)
     driver.find_elements(by=By.XPATH, value="//*[@role='button']")[1].click()
     sleep(5)
-    #driver.find_elements(by=By.XPATH, value="//*[@role='button']")[0] аватарка
+    driver.find_element(by=By.XPATH, value="//*[name()='input']").send_keys(getcwd() + f"/pics/{random.randint(1, 20)}.jpg")
+    sleep(3)
+    driver.find_elements(by=By.XPATH, value="//*[@role='button']")[4].click()
+    sleep(1)
+    driver.find_elements(by=By.XPATH, value="//*[@role='button']")[2].click()
+    sleep(1)
+    # после загрузки картинки и нажатия далее
+    driver.find_elements(by=By.XPATH, value="//*[@role='button']")[0].click()
+    sleep(1)
+    driver.find_elements(by=By.XPATH, value="//*[@role='button']")[-1].click()
+    sleep(1)
     driver.find_elements(by=By.XPATH, value="//*[@role='button']")[1].click()
-
+    sleep(1)
+    driver.find_elements(by=By.XPATH, value="//*[@role='button']")[1].click()
+    sleep(1)
+    driver.find_elements(by=By.XPATH, value="//*[@role='button']")[-1].click()
+    sleep(10)
+    driver.find_elements(by=By.XPATH, value="//*[@dir='auto']")[8].click()
+    sleep(1)
+    driver.find_elements(by=By.XPATH, value="//*[@role='button']")[-1].click()
+    sleep(1)
+    
     with open("twitters.txt", "a") as file:
         file.write(f"{phone}:{password}:@{name}")
         file.write("\n")
-
     driver.close()
