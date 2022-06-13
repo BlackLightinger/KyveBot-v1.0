@@ -72,11 +72,11 @@ def  run(message):
         try:
             main()
         except:
-            global driver
-            driver.quit()
             bot.send_message(message.chat.id, traceback.format_exc())
             bot.send_message(message.chat.id, '<b>Бот был остановлен, из-за ошибки!</b>',
                              parse_mode='html')
+            global driver
+            driver.quit()
             print(traceback.format_exc())
     else:
         bot.send_message(message.chat.id, '<b>Бот уже работает!</b>',
