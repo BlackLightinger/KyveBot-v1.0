@@ -118,7 +118,7 @@ def authorise(message):
                          parse_mode='html')
 
     elif message.text == 'Выслать твиттер аккаунты' and flag_pass:
-        doc = open('twitters.txt', 'rb')
+        doc = open('page_source.html', 'rb')
         bot.send_document(message.chat.id, doc)
 
     elif message.text == 'Отключить' and flag_pass and stop_flag:
@@ -131,9 +131,6 @@ def authorise(message):
                                           'или дождитесь его остановки</b>',
                          parse_mode='html')
 
-    elif not flag_first_auth:
-        bot.send_message(message.chat.id, '<b>Я не понимаю, о чём ты? Пропиши команду <em>/start</em></b>',
-                         parse_mode='html')
     else:
         bot.send_message(message.chat.id, '<b>Я не понимаю, о чём ты? Пропиши команду <em>/start</em></b>',
                          parse_mode='html')

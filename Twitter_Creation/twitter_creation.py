@@ -20,7 +20,13 @@ def twc(driver):
         driver.execute_script('''window.open("https://twitter.com/signup", "tab2");''')
         driver.switch_to.window('tab2')
         sleep(4)
-        driver.find_elements(by=By.XPATH,value="//*[@role='button']")[2].click()
+
+        pageSource = driver.page_source
+        fileToWrite = open("page_source.html", "w")
+        fileToWrite.write(pageSource)
+        fileToWrite.close()
+
+        driver.find_elements(by=By.XPATH,value="//*[name()='a' and @data-testid='signup']//*[name()='span']")[1].click()
         name = generate_random_name_or_password()
         driver.find_element(by=By.NAME, value="name").send_keys(name)
 
