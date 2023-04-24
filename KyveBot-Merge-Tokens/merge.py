@@ -82,7 +82,7 @@ sleep(1)
 acp_api_send_request(
     driver,
     'setOptions',
-    {'options': {'antiCaptchaApiKey': '86fab685c1b83c34e38c1f2903d5a62e'}}
+    {'options': {'antiCaptchaApiKey': ''}}
 )
 sleep(3)
 
